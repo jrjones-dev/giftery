@@ -34,7 +34,8 @@ public class GifteryUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        sortingOrderGroup = new javax.swing.ButtonGroup();
+        userSortGroup = new javax.swing.ButtonGroup();
+        preSortGroup = new javax.swing.ButtonGroup();
         titleBackground = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         giftNameLabel = new javax.swing.JLabel();
@@ -97,11 +98,11 @@ public class GifteryUI extends javax.swing.JFrame {
 
         priceTextField.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
 
-        sortingOrderGroup.add(userAscendingPrice);
+        userSortGroup.add(userAscendingPrice);
         userAscendingPrice.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         userAscendingPrice.setText("Ascending Price");
 
-        sortingOrderGroup.add(userDescendingPrice);
+        userSortGroup.add(userDescendingPrice);
         userDescendingPrice.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         userDescendingPrice.setText("Descending Price");
 
@@ -124,11 +125,11 @@ public class GifteryUI extends javax.swing.JFrame {
 
         giftListTextField.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
 
-        sortingOrderGroup.add(preAscendingPrice);
+        preSortGroup.add(preAscendingPrice);
         preAscendingPrice.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         preAscendingPrice.setText("Ascending Price");
 
-        sortingOrderGroup.add(preDescendingPrice);
+        preSortGroup.add(preDescendingPrice);
         preDescendingPrice.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         preDescendingPrice.setText("Descending Price");
 
@@ -160,7 +161,7 @@ public class GifteryUI extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(outputScroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                                .addComponent(outputScroll1)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(layout.createSequentialGroup()
@@ -464,13 +465,14 @@ public class GifteryUI extends javax.swing.JFrame {
     private javax.swing.JButton plusListButton;
     private javax.swing.JRadioButton preAscendingPrice;
     private javax.swing.JRadioButton preDescendingPrice;
+    private javax.swing.ButtonGroup preSortGroup;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JTextField priceTextField;
     private javax.swing.JButton showListButton;
-    private javax.swing.ButtonGroup sortingOrderGroup;
     private javax.swing.JPanel titleBackground;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JRadioButton userAscendingPrice;
     private javax.swing.JRadioButton userDescendingPrice;
+    private javax.swing.ButtonGroup userSortGroup;
     // End of variables declaration//GEN-END:variables
 }
