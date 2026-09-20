@@ -56,7 +56,8 @@ public class GifteryUI extends javax.swing.JFrame {
         showListButton = new javax.swing.JButton();
         outputScroll2 = new javax.swing.JScrollPane();
         outputArea2 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        dollarSignLabel = new javax.swing.JLabel();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,8 +148,17 @@ public class GifteryUI extends javax.swing.JFrame {
         outputArea2.setRows(5);
         outputScroll2.setViewportView(outputArea2);
 
-        jLabel1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel1.setText("$");
+        dollarSignLabel.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        dollarSignLabel.setText("$");
+
+        exitButton.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        exitButton.setForeground(new java.awt.Color(255, 0, 0));
+        exitButton.setText("Exit");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,9 +166,11 @@ public class GifteryUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(titleBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(titleBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(outputScroll1)
@@ -172,7 +184,7 @@ public class GifteryUI extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(priceLabel)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel1)
+                                            .addComponent(dollarSignLabel)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(priceTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
@@ -183,20 +195,24 @@ public class GifteryUI extends javax.swing.JFrame {
                                 .addComponent(userAscendingPrice)
                                 .addGap(18, 18, 18)
                                 .addComponent(userDescendingPrice)))
-                        .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(showListButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(giftListLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(giftListTextField))
+                                .addGap(39, 39, 39)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(showListButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(giftListLabel)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(giftListTextField))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(preAscendingPrice)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(preDescendingPrice)
+                                        .addGap(0, 38, Short.MAX_VALUE))
+                                    .addComponent(outputScroll2)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(preAscendingPrice)
-                                .addGap(18, 18, 18)
-                                .addComponent(preDescendingPrice)
-                                .addGap(0, 32, Short.MAX_VALUE))
-                            .addComponent(outputScroll2))))
-                .addContainerGap())
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,8 +235,8 @@ public class GifteryUI extends javax.swing.JFrame {
                     .addComponent(priceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(priceLabel)
                     .addComponent(showListButton)
-                    .addComponent(jLabel1))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dollarSignLabel))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -229,10 +245,13 @@ public class GifteryUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(plusListButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(outputScroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE))
+                        .addComponent(outputScroll1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(outputScroll2)))
+                        .addComponent(outputScroll2, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(exitButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -251,9 +270,9 @@ public class GifteryUI extends javax.swing.JFrame {
         }
                 
         // Number check
-        String giftName = giftNameTextField.getText();
-        String manufacturer = manufacturerTextField.getText();
-        String price = priceTextField.getText();
+        String giftName = giftNameTextField.getText().trim();
+        String manufacturer = manufacturerTextField.getText().trim();
+        String price = priceTextField.getText().trim();
         
         if (giftName.isEmpty() || manufacturer.isEmpty() || price.isEmpty()) {
             outputArea1.setText("Error! \nNo value has been entered. \nPlease enter a value.");
@@ -270,11 +289,16 @@ public class GifteryUI extends javax.swing.JFrame {
             return;
         }
         
-        // Catches character inputs for price
+        // Catches character and negative number inputs for price
+        double priceValue;
         try {
-            Integer.parseInt(price);
+            priceValue = Double.parseDouble(price);
         } catch (NumberFormatException e) {
             outputArea1.setText("Error! \nPrice value not a number. \nPlease enter a correct number value.");
+            return;
+        }
+        if (priceValue < 0 || !Double.isFinite(priceValue)) {
+            outputArea1.setText("Error! \nPrice must be a positive number.");
             return;
         }
         
@@ -406,6 +430,10 @@ public class GifteryUI extends javax.swing.JFrame {
         giftListTextField.setText("");
     }//GEN-LAST:event_showListButtonActionPerformed
 
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitButtonActionPerformed
+
     private boolean containsDigits(String input) {
         for (char c : input.toCharArray()) {
             if (Character.isDigit(c)) {
@@ -451,11 +479,12 @@ public class GifteryUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel dollarSignLabel;
+    private javax.swing.JButton exitButton;
     private javax.swing.JLabel giftListLabel;
     private javax.swing.JTextField giftListTextField;
     private javax.swing.JLabel giftNameLabel;
     private javax.swing.JTextField giftNameTextField;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel manufacturerLabel;
     private javax.swing.JTextField manufacturerTextField;
     private javax.swing.JTextArea outputArea1;
