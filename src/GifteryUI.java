@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,15 +6,17 @@ import java.io.IOException;
 import java.util.Comparator;
 import java.util.ArrayList;
 import java.util.Collections;
+
 /*
 This program was created by Jesse Jones
 on June 16th, 2023
 for the purpose of having my own gift app to share with others
 */
+
 public class GifteryUI extends javax.swing.JFrame {
     // Creates global String list
-    ArrayList <String[]> userList = new ArrayList();
-    ArrayList <String[]> preList = new ArrayList();
+    ArrayList <String[]> userList = new ArrayList<>();
+    ArrayList <String[]> preList = new ArrayList<>();
     private boolean isAscending = true;
     
     public GifteryUI() {
@@ -261,7 +259,6 @@ public class GifteryUI extends javax.swing.JFrame {
     private void plusListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusListButtonActionPerformed
         // Clears previous outputs
         outputArea1.setText("");
-        outputArea2.setText("");
 
         // Limit the list to 15 gifts
         if (userList.size() >= 15) {
@@ -353,19 +350,9 @@ public class GifteryUI extends javax.swing.JFrame {
 
     private void showListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showListButtonActionPerformed
         // Clears previous outputs
-        outputArea1.setText("");
         outputArea2.setText("");
-          
-        /*
-        // Number check
-        String test = giftListTextField.getText();
         
-        // Would be used for the actual program when inputting a link
-        if (test.isEmpty()) {
-            outputArea2.setText("Error! \nNo value has been entered. \nPlease enter a value.");
-            return;
-        }
-        */
+        // TODO: the full app would take a product link here
         
         // Finds if ascending or desending button is clicked
         if (preAscendingPrice.isSelected()) {
