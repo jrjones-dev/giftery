@@ -303,15 +303,8 @@ public class GifteryUI extends javax.swing.JFrame {
         }
         
         // Looks for digits in gift name and manufacturer
-        if (containsDigits(giftName) || containsDigits(manufacturer)) {
-            // Outputs error message
-            outputArea1.setText("Error! \nGift name and/or manufacturer value \nis a number. \nPlease input a name \ninstead of numbers");
-        
-            // Clears input
-            giftNameTextField.setText("");
-            manufacturerTextField.setText("");
-            priceTextField.setText("");
-            giftListTextField.setText("");
+        if (isOnlyDigits(giftName) || isOnlyDigits(manufacturer) || giftName.contains(",") || manufacturer.contains(",")) {
+            outputArea1.setText("Error! \nName and manufacturer can't be \nonly numbers or contain commas.");
         } else {
             // Adds values to list and sorts the list
             String[] gift = {giftName, manufacturer, price};
@@ -434,13 +427,8 @@ public class GifteryUI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
-    private boolean containsDigits(String input) {
-        for (char c : input.toCharArray()) {
-            if (Character.isDigit(c)) {
-                return true;
-            }
-        }
-        return false;
+    private boolean isOnlyDigits(String input) {
+        return input.matches("\\d+");
     }
     
     /**
