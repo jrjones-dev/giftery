@@ -368,9 +368,29 @@ public class GifteryUI extends javax.swing.JFrame {
         try (BufferedReader reader = new BufferedReader(new FileReader("Read From List.txt"))) {
             String line;
             preList.clear();
+            int skipped = 0;
 
             while ((line = reader.readLine()) != null) {
+                // Skip blank lines
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+                
+                // Each line needs exactly 3 parts: name, manufacturer, price
                 String[] gift = line.split(", ");
+                if (gift.length != 3) {
+                    skipped++;
+                    continue;
+                }
+
+                // The price must be a valid number
+                try {
+                    Double.parseDouble(gift[2]);
+                } catch (NumberFormatException e) {
+                    skipped++;
+                    continue;
+                }
+
                 preList.add(gift);
             }
 
@@ -392,6 +412,10 @@ public class GifteryUI extends javax.swing.JFrame {
             outputArea2.setText("");
             for (String[] gift : preList) {
                 outputArea2.append(gift[0] + ", " + gift[1] + ", $" + gift[2] + "\n");
+            }
+            
+            if (skipped > 0) {
+                outputArea2.append("\n(" + skipped + " invalid line(s) skipped)");
             }
         } catch (IOException e) {
             outputArea2.setText("Error reading from the file: " + e.getMessage());
