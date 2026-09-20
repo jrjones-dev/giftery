@@ -263,9 +263,9 @@ public class GifteryUI extends javax.swing.JFrame {
         outputArea1.setText("");
         outputArea2.setText("");
 
-        // Check for index value out of range
-        if (userList.size() > 15) {
-            outputArea1.setText("Error! \nIndex value out of range");
+        // Limit the list to 15 gifts
+        if (userList.size() >= 15) {
+            outputArea1.setText("Error! \nYour list is full (15 gifts max).");
             return;
         }
                 
@@ -355,18 +355,12 @@ public class GifteryUI extends javax.swing.JFrame {
         // Clears previous outputs
         outputArea1.setText("");
         outputArea2.setText("");
-
-        // Check for index value out of range
-        if (userList.size() > 15) {
-            outputArea2.setText("Error! \nIndex value out of range");
-            return;
-        }
-                
+          
+        /*
         // Number check
         String test = giftListTextField.getText();
         
-        /*
-        Would be used for the actual program when inputting a link
+        // Would be used for the actual program when inputting a link
         if (test.isEmpty()) {
             outputArea2.setText("Error! \nNo value has been entered. \nPlease enter a value.");
             return;
