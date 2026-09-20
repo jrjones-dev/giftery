@@ -1,0 +1,13 @@
+# NetBeans
+build/
+dist/
+nbproject/private/
+
+# Java
+*.class
+
+# macOS
+.DS_Store
+
+# Generated when you use the app
+CreateList.txt
