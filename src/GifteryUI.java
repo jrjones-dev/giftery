@@ -314,8 +314,8 @@ public class GifteryUI extends javax.swing.JFrame {
             try {
                 BufferedWriter writer = new BufferedWriter(new FileWriter("CreateList.txt"));
             
-                for (int i = 0; i < userList.size(); i++) {
-                    writer.write(gift[0] + ", " + gift[1] + ", " + gift[2]);
+                for (String[] g : userList) {
+                    writer.write(g[0] + ", " + g[1] + ", " + g[2]);
                     writer.newLine();
                 }
             
